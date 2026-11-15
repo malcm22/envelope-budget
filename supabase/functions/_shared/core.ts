@@ -170,7 +170,7 @@ export async function syncItem(db: SupabaseClient, item: Doc, opts: { quiet?: bo
     const id = "plaid-" + tx.transaction_id;
     const text = [tx.original_description, tx.name, tx.merchant_name].filter(Boolean).join(" ");
     const merchant = norm(tx.merchant_name || tx.name);
-    const base = { date, amount: Math.round(tx.amount * 100), desc: tidy(tx.merchant_name || tx.name), merchant, pending: !!tx.pending, source: "bank", account: tx.account_id };
+    const base = { date, amount: Math.round(tx.amount * 100), desc: tidy(tx.merchant_name || tx.name), merchant, pending: !!tx.pending, source: "bank", account: tx.account_id, raw: tx.original_description || tx.name || "" };
     const existing = h.txns[id];
     if (existing) { upserts.push({ id, data: { ...existing, ...base } }); h.txns[id] = { ...existing, ...base }; continue; }
     let carried: Doc | null = null;
