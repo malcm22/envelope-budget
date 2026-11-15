@@ -1071,7 +1071,7 @@ function showSignIn(step, email){
   const app = $('#app');
   if (step !== 'code') {
     app.innerHTML = `<div style="max-width:420px;margin:8vh auto 0">
-      <div class="ticon" style="--c:#2563eb;width:56px;height:56px;border-radius:16px;font-size:28px;margin-bottom:14px">💵</div>
+      <img src="icons/icon-192.png" alt="" width="64" height="64" style="border-radius:15px;margin-bottom:14px;box-shadow:0 6px 18px rgba(37,99,235,.25)">
       <h1>${esc(C_.appName || 'Budget')}</h1><p class="sub">Sign in with your email. We'll send you a 6-digit code — no password.</p>
       <div class="card stack" style="margin-top:16px"><div class="field"><label>Email</label><input id="si_email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" value="${esc(email||'')}"></div>
       <button class="btn primary full" id="si_send">Email me a code</button></div>
